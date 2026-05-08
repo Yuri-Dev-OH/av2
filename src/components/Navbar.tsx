@@ -121,3 +121,4 @@ export default function Navbar() {
   );
 }
 
+//https://www.pichau.com.br/placa-de-video-asus-geforce-rtx-5090-tuf-gaming-oc-32gb-gddr7-512-bit-tuf-rtx5090-o32g-gaming-nac?srsltid=AfmBOoqCG4UP5sRVCer-Oh04neJxq59FWF6irqzO86hhvuQff0ykCJa9SAI
