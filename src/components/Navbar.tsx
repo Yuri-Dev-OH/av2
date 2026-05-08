@@ -30,22 +30,27 @@ export default function Navbar() {
     window.location.href = '/'; 
   };
 
-  // Montando as rotas baseadas na regra de permissão da imagem
   const navLinks = [
     { name: 'Home', path: '/dashboard/home', icon: <IoHomeOutline size={20} /> },
-    { name: 'Aeronaves', path: '/dashboard/aeronaves', icon: <IoAirplaneOutline size={20} /> },
-    { name: 'Peças', path: '/dashboard/pecas', icon: <IoHardwareChipOutline size={20} /> }
   ];
+
+  if (isAdmin || isEngenheiro) {
+    navLinks.push({ name: 'Relatórios', path: '/dashboard/relatorios', icon: <IoDocumentTextOutline size={20} /> });
+  }
+
+  navLinks.push({ name: 'Aeronaves', path: '/dashboard/aeronaves', icon: <IoAirplaneOutline size={20} /> });
+  navLinks.push({ name: 'Peças', path: '/dashboard/pecas', icon: <IoHardwareChipOutline size={20} /> });
 
   if (isAdmin || isOperador) {
     navLinks.push({ name: 'Etapas', path: '/dashboard/etapas', icon: <IoLayersOutline size={20} /> });
-    // Operador pode adicionar funcionários segundo a regra
-    navLinks.push({ name: 'Funcionários', path: '/dashboard/funcionarios', icon: <IoPeopleOutline size={20} /> });
   }
 
   if (isAdmin || isEngenheiro) {
     navLinks.push({ name: 'Testes', path: '/dashboard/testes', icon: <IoBuildOutline size={20} /> });
-    navLinks.push({ name: 'Relatórios', path: '/dashboard/relatorios', icon: <IoDocumentTextOutline size={20} /> });
+  }
+
+  if (isAdmin) {
+    navLinks.push({ name: 'Funcionários', path: '/dashboard/funcionarios', icon: <IoPeopleOutline size={20} /> });
   }
 
   return (
@@ -116,4 +121,3 @@ export default function Navbar() {
   );
 }
 
-//https://www.pichau.com.br/placa-de-video-asus-geforce-rtx-5090-tuf-gaming-oc-32gb-gddr7-512-bit-tuf-rtx5090-o32g-gaming-nac?srsltid=AfmBOoqCG4UP5sRVCer-Oh04neJxq59FWF6irqzO86hhvuQff0ykCJa9SAI
