@@ -10,36 +10,34 @@ import Pecas from './pages/Pecas';
 import Etapas from './pages/Etapas';
 import Testes from './pages/Testes';
 import DevSwitch from './components/DevSwitch';
-import { USUARIOS_TESTE } from './constants/usuarios';
 
 export default function App() {
-  
+  // Verifica se existe um usuário logado no localStorage
   const sessaoAtiva = localStorage.getItem('usuarioSessao');
-  // Lê a flag que avisa se o usuário clicou em "Sair" propositalmente
-  const pulouAutoLogin = sessionStorage.getItem('skipAutoLogin');
-
-  // Só injeta o login automático se estiver no modo DEV e não tiver acabado de dar Logout
-  if (import.meta.env.DEV && !sessaoAtiva && !pulouAutoLogin) {
-    localStorage.setItem('usuarioSessao', JSON.stringify(USUARIOS_TESTE[0]));
-    window.location.reload();
-    return null;
-  }
 
   return (
     <Router>
+      {/* O DevSwitch continua aqui para você poder trocar de conta rápido DEPOIS de logar */}
       <DevSwitch />
 
       <Routes>
+        {/* Rota Raiz: Se estiver logado, vai pro Dashboard. Se não, Tela de Login */}
         <Route 
           path="/" 
           element={
-            sessaoAtiva || (import.meta.env.DEV && !pulouAutoLogin)
+            sessaoAtiva 
               ? <Navigate to="/dashboard" replace /> 
               : <Login />
           } 
         />
         
-        <Route path="/dashboard" element={<Dashboard />}>
+        {/* Rotas Protegidas do Dashboard */}
+        <Route 
+          path="/dashboard" 
+          element={
+            sessaoAtiva ? <Dashboard /> : <Navigate to="/" replace />
+          }
+        >
           <Route index element={<Navigate to="home" replace />} />
           <Route path="home" element={<Home />} />
           <Route path="relatorios" element={<Relatorios />} />
@@ -50,6 +48,7 @@ export default function App() {
           <Route path="funcionarios" element={<Funcionarios />} />
         </Route>
         
+        {/* Redireciona qualquer rota inexistente para a raiz */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
