@@ -1,18 +1,59 @@
-# React + Vite
+# Aerocode - Gestão de Produção de Aeronaves (GUI Version) ✈️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O **Aerocode** evoluiu. O que antes era um protótipo em linha de comando agora é uma plataforma web completa para o gerenciamento do ciclo de vida de produção aeroespacial. Este sistema permite o controle desde o cadastro do chassi da aeronave até a certificação final e entrega ao cliente.
 
-Currently, two official plugins are available:
+## 🚀 Novas Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Gestão de Frota:** Cadastro e visualização detalhada de modelos comerciais e militares.
+- **Inventário de Peças:** Controle de componentes nacionais e importados vinculados a cada aeronave.
+- **Timeline de Produção:** Gerenciamento de etapas sequenciais (uma etapa só pode ser concluída se a anterior estiver pronta).
+- **Alocação de Equipe:** Registro obrigatório de funcionários por etapa de montagem.
+- **Certificação de Qualidade:** Módulo de testes (Elétrico, Hidráulico e Aerodinâmico) com aprovação técnica.
+- **Emissão de Relatórios:** Geração de documentos finais em formato TXT e visualização de PDF nativo.
+- **Dev Switch:** Atalho lateral para alternar rapidamente entre níveis de permissão para testes de interface.
 
-## React Compiler
+## 🔐 Níveis de Acesso (RBAC)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O sistema obedece a uma estrutura rigorosa de permissões:
 
-## Expanding the ESLint configuration
+| Nível | Descrição |
+| :--- | :--- |
+| **ADMINISTRADOR** | Acesso total: usuários, aeronaves, peças, etapas, testes e relatórios. |
+| **ENGENHEIRO** | Gerencia testes, visualiza aeronaves/peças e gera relatórios. |
+| **OPERADOR** | Lista aeronaves, atualiza status de peças/etapas e adiciona funcionários. |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias Utilizadas
 
+- **React.js** com **Vite** (Fast Refresh e Performance)
+- **TypeScript** (Tipagem estrita para segurança das regras de negócio)
+- **Tailwind CSS** (Interface responsiva e moderna)
+- **React Router Dom** (Navegação e proteção de rotas)
+- **React Icons / Heroicons** (Identidade visual intuitiva)
 
+## 📦 Como rodar o projeto
+
+1. Clone o repositório e acesse a pasta do projeto:
+\`\`\`bash
+cd aerocode-gui
+\`\`\`
+
+2. Instale as dependências:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Inicie o servidor de desenvolvimento:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+4. Acesse o endereço indicado no terminal (geralmente `http://localhost:5173`).
+
+## 🧪 Credenciais de Teste (Senha padrão: 123)
+
+- **ADM:** `admin@aerocode.com`
+- **ENGENHEIRO:** `engenheiro@aerocode.com`
+- **OPERADOR:** `operador@aerocode.com`
+
+---
+*Desenvolvido por Yuri Gonçalves de Souza.*
