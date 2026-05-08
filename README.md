@@ -33,19 +33,22 @@ O sistema obedece a uma estrutura rigorosa de permissões:
 ## 📦 Como rodar o projeto
 
 1. Clone o repositório e acesse a pasta do projeto:
-\`\`\`bash
-cd aerocode-gui
-\`\`\`
+
+```bash
+   cd aerocode-gui
+```
 
 2. Instale as dependências:
-\`\`\`bash
-npm install
-\`\`\`
+
+```bash
+   npm install
+```
 
 3. Inicie o servidor de desenvolvimento:
-\`\`\`bash
-npm run dev
-\`\`\`
+
+```bash
+   npm run dev
+```
 
 4. Acesse o endereço indicado no terminal (geralmente `http://localhost:5173`).
 
