@@ -35,7 +35,8 @@ O sistema obedece a uma estrutura rigorosa de permissões:
 1. Clone o repositório e acesse a pasta do projeto:
 
 ```bash
-   cd aerocode-gui
+   git clone https://github.com/Yuri-Dev-OH/av2.git
+   cd av2
 ```
 
 2. Instale as dependências:
