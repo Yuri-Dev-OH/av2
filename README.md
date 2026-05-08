@@ -36,6 +36,9 @@ O sistema obedece a uma estrutura rigorosa de permissões:
 
 ```bash
    git clone https://github.com/Yuri-Dev-OH/av2.git
+```
+
+```bash
    cd av2
 ```
 
